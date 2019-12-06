@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>My Color Game</title>
+        <style>
+            .heavy {
+                font-weight: 700;
+            }
+            #color-block, #match-block {
+                height: 100px;
+                width: 100px;
+            }
+        </style>
+        <script type="text/javascript" src="./index.js"></script>
+    </head>
+
+    <body>
+        <div class="heavy">Hello, World!</div>
+
+        <div id="match-block"></div>
+        <div id="color-block"></div>
+
+        <div>
+            <span>Red</span>
+            <input id="red-slider" type="range" name="red" min="0" max="255">
+            
+        </div>
+        <div>
+            <span>Green</span>
+                <input id="green-slider" type="range" name="green" min="0" max="255">
+
+
+        </div>
+
+        <div>
+            <span>Blue</span>
+                <input id="blue-slider" type="range" name="blue" min="0" max="255">
+        </div>
+
+        <button onclick="newGame()">New Game</button>
+
+    </body>
+</html>
