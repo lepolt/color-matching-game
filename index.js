@@ -80,6 +80,7 @@ function newGame() {
 
     document.getElementById('score').innerText = ''
     updateRandomBlock();
+    updateColorBlock();
     enableControls();
 }
 
