@@ -1,40 +1,36 @@
 <html>
     <head>
-        <title>My Color Game</title>
-        <style>
-            .heavy {
-                font-weight: 700;
-            }
-            #color-block, #match-block {
-                height: 100px;
-                width: 100px;
-            }
-        </style>
-        <script type="text/javascript" src="./index.js"></script>
+        <title>Color Matching Game</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen"></link>
+        <script src="index.js" async onload="init()"></script>
     </head>
 
     <body>
-        <div class="heavy">Hello, World!</div>
+        <div class="heavy">Match the Color!</div>
 
         <div id="match-block"></div>
         <div id="color-block"></div>
 
-        <div>
+        <div class="slider">
             <span>Red</span>
             <input id="red-slider" type="range" name="red" min="0" max="255">
-            
         </div>
-        <div>
+
+        <div class="slider">
             <span>Green</span>
-                <input id="green-slider" type="range" name="green" min="0" max="255">
-
-
+            <input id="green-slider" type="range" name="green" min="0" max="255">
         </div>
 
-        <div>
+        <div class="slider">
             <span>Blue</span>
-                <input id="blue-slider" type="range" name="blue" min="0" max="255">
+            <input id="blue-slider" type="range" name="blue" min="0" max="255">
         </div>
+
+        <button id="score-button" onclick="calculateScore()">Score</button>
+        
+        <div id="timer"></div>
+        <div id="score"></div>
 
         <button onclick="newGame()">New Game</button>
 

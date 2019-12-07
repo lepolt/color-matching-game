@@ -1,0 +1,7 @@
+.heavy {
+  font-weight: 700;
+}
+#color-block, #match-block {
+  height: 100px;
+  width: 100px;
+}
