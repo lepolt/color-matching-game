@@ -18,18 +18,24 @@ function init() {
     greenSlider = document.querySelector('#green-slider');
     blueSlider = document.querySelector('#blue-slider');
     
-    redSlider.addEventListener('input', (event) => {
-      red = parseInt(event.target.value, 10);
-      updateColorBlock();
-    });
-    greenSlider.addEventListener('input', (event) => {
-        green = parseInt(event.target.value, 10);
-        updateColorBlock();
-    });
-    blueSlider.addEventListener('input', (event) => {
-        blue = parseInt(event.target.value, 10);
-        updateColorBlock();
-    });
+    if (redSlider) {
+        redSlider.addEventListener('input', (event) => {
+            red = parseInt(event.target.value, 10);
+            updateColorBlock();
+          });      
+    }
+    if (greenSlider) {
+        greenSlider.addEventListener('input', (event) => {
+            green = parseInt(event.target.value, 10);
+            updateColorBlock();
+        });    
+    }
+    if (blueSlider) {
+        blueSlider.addEventListener('input', (event) => {
+            blue = parseInt(event.target.value, 10);
+            updateColorBlock();
+        });    
+    }
 
     newGame()
     updateColorBlock();
@@ -39,7 +45,9 @@ function init() {
  * Updates our color block with a value based on the sliders
  */
 function updateColorBlock() {
-    colorBlock.style = `background-color: rgba(${red}, ${green}, ${blue}, 1)`;
+    if (colorBlock) {
+        colorBlock.style = `background-color: rgba(${red}, ${green}, ${blue}, 1)`;
+    }
 }
 
 /**
@@ -51,8 +59,10 @@ function updateRandomBlock() {
     let blue = getRandomInt(255);
 
     randomColor = {red, green, blue}
-    let block = document.getElementById('match-block');
-    block.style = `background-color: rgb(${red}, ${green}, ${blue})`;
+    let matchBlock = document.getElementById('match-block');
+    if (matchBlock) {
+        matchBlock.style = `background-color: rgb(${red}, ${green}, ${blue})`;
+    }
 }
 
 /**
@@ -71,14 +81,23 @@ function newGame() {
     green = 127; 
     blue = 127;
 
-    redSlider.value = red;
-    greenSlider.value = green;
-    blueSlider.value = blue;
-
+    if (redSlider) {
+        redSlider.value = red;
+    }
+    if (greenSlider) {
+        greenSlider.value = green;
+    }
+    if (blueSlider) {
+        blueSlider.value = blue;
+    }
+    
     resetTimer();
     updateTimer();
 
-    document.getElementById('score').innerText = ''
+    var el = document.getElementById('score') 
+    if (el) {
+        el.innerText = ''
+    }
     updateRandomBlock();
     updateColorBlock();
     enableControls();
@@ -117,7 +136,10 @@ function calculateScore() {
 
     clearInterval(timer);
     updateTimer();
-    document.getElementById('score').innerText = `Your score: ${score}`;
+    let el = document.getElementById('score')
+    if (el) {
+        el.innerText = `Your score: ${score}`;
+    }
     disableControls();
 }
 
@@ -126,11 +148,19 @@ function disableControls() {
     var greenSlider = document.getElementById('green-slider');
     var blueSlider = document.getElementById('blue-slider');
 
-    redSlider.setAttribute('disabled', true);
-    greenSlider.setAttribute('disabled', true);
-    blueSlider.setAttribute('disabled', true);
-
-    scoreButton.setAttribute('disabled', true);
+    if (redSlider) {
+        redSlider.setAttribute('disabled', true);
+    }
+    if (greenSlider) {
+        greenSlider.setAttribute('disabled', true);
+    }
+    if (blueSlider) {
+        blueSlider.setAttribute('disabled', true);
+    }
+    
+    if (scoreButton) {
+        scoreButton.setAttribute('disabled', true);
+    }
 }
 
 function enableControls() {
@@ -138,9 +168,17 @@ function enableControls() {
     var greenSlider = document.getElementById('green-slider');
     var blueSlider = document.getElementById('blue-slider');
 
-    redSlider.removeAttribute('disabled');
-    greenSlider.removeAttribute('disabled');
-    blueSlider.removeAttribute('disabled');
+    if (redSlider) {
+        redSlider.removeAttribute('disabled');
+    }
+    if (greenSlider) {
+        greenSlider.removeAttribute('disabled');
+    }
+    if (blueSlider) {
+        blueSlider.removeAttribute('disabled');
+    }
 
-    scoreButton.removeAttribute('disabled');
+    if (scoreButton) {
+        scoreButton.removeAttribute('disabled');
+    }
 }
