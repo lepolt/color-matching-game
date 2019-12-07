@@ -1,2 +1,0 @@
-hello, content!
-<!-- index.html -->
