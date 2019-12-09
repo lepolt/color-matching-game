@@ -46,7 +46,7 @@ function init() {
  */
 function updateColorBlock() {
     if (colorBlock) {
-        colorBlock.style = `background-color: rgba(${red}, ${green}, ${blue}, 1)`;
+        colorBlock.style = buildBlockStyle(red, green, blue);
     }
 }
 
@@ -61,10 +61,16 @@ function updateRandomBlock() {
     randomColor = {red, green, blue}
     let matchBlock = document.getElementById('match-block');
     if (matchBlock) {
-        matchBlock.style = `background-color: rgb(${red}, ${green}, ${blue})`;
+
+        matchBlock.style = buildBlockStyle(red, green, blue);
     }
 }
 
+function buildBlockStyle(red, green, blue) {
+    let background = `background-color: rgb(${red}, ${green}, ${blue})`;
+    let boxShadow = `box-shadow: 0 0 5px rgb(${red}, ${green}, ${blue})`;
+    return `${background}; ${boxShadow}`;
+}
 /**
  * Returns a random number between 0 and max
  * @param {Int} max 
