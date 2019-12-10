@@ -5,4 +5,37 @@
 #color-block, #match-block {
   height: 100px;
   width: 100px;
+  margin: auto;
+}
+
+body {
+  width: 180px;
+  margin: auto;
+}
+.text-center {
+  text-align: center;
+}
+.slider {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.slider span {
+  width: 40px;
+}
+.compare-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#score-button {
+  margin-top: 5px;
+}
+#score {
+  font-size: 20px;
+  padding-top: 5px;
+}
+.new-game {
+  width: 100%;
+  margin-top: 10px;
 }

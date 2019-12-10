@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <div class="heavy">Match the Color!</div>
+        <div class="heavy text-center">Match the Color!</div>
 
         <div id="match-block"></div>
         <div id="color-block"></div>
@@ -27,12 +27,15 @@
             <input id="blue-slider" type="range" name="blue" min="0" max="255">
         </div>
 
-        <button id="score-button" onclick="calculateScore()">Score</button>
-        
-        <div id="timer"></div>
-        <div id="score"></div>
+        <div class="compare-container">
+            <div class="text-center" id="timer"></div>
+            <button id="score-button" onclick="calculateScore()">Compare</button>
+            
+            <div class="text-center" id="score"></div>
 
-        <button onclick="newGame()">New Game</button>
+        </div>
+
+        <button class="new-game" onclick="newGame()">New Game</button>
 
     </body>
 </html>
