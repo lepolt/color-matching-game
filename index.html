@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="title">Match the Color</div>
     
-                <div class="row">
+                <div class="row flex-center">
                     <div class="block-container">
                         <div id="match-block" class="block"></div>
                         <div class="block-text">Match this color</div>
@@ -28,8 +28,9 @@
                 <div class="row">
     
                     <div class="button-container">
-                        <button class="purple" id="score-button" onclick="calculateScore()">Compare</button>
-                        <button class="blue new-game" onclick="newGame()">New Game</button>
+                        <button class="purple" id="score-button" onclick="calculateScore()">Check my color</button>
+                        <button class="blue new-game" onclick="newGame()">New color to match</button>
+                        <button class="green" id="hint-button" onclick="hint()">I need a hint!</button>
                     </div>
     
                     <div class="slider-container">
@@ -46,7 +47,13 @@
                         <div class="slider">
                             <span class="blue">Blue</span>
                             <input id="blue-slider" type="range" name="blue" min="0" max="255">
-                        </div>            
+                        </div>
+
+                        <div class="hints">
+                            <div id="hint-red" class="red hidden">a</div>
+                            <div id="hint-green" class="green hidden">b</div>
+                            <div id="hint-blue" class="blue hidden">c</div>
+                        </div>
                     </div>
                 
                 </div>

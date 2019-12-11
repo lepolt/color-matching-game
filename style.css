@@ -28,9 +28,12 @@ body {
 
 .row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin-bottom: 36px;
+}
+
+.row.flex-center {
+  align-items: center;
 }
 
 .row .block-container {
@@ -100,6 +103,10 @@ button:hover {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: default;
+}
+
 button:first-of-type {
   margin-bottom: 5px;
 }
@@ -108,12 +115,21 @@ button.blue {
   background-color: #0091FF;
 }
 
-/* button.blue:hover {
-  background-color: ;
-} */
-
 button.purple {
   background-color: #6236FF;
+}
+
+button.green {
+  background-color: #2BB700;
+  margin-top: 20px;
+}
+
+button.green:disabled {
+  filter: brightness(50%);
+}
+
+button.purple:disabled {
+  filter: brightness(50%);
 }
 
 #score {
@@ -121,4 +137,26 @@ button.purple {
   font-weight: bold;
   margin-top: 16px;
   text-transform: uppercase;
+}
+
+.hints {
+  margin-top: 20px;
+  padding: 0 30px;
+  text-align: left;
+}
+
+.hints .red {
+  color: #E02020;
+}
+
+.hints .green {
+  color: #2BB700;
+}
+
+.hints .blue {
+  color: #0091FF;
+}
+
+.hidden {
+  display: none;
 }

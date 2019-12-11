@@ -9,10 +9,12 @@ let timer = null;
 let seconds = 0;
 let colorBlock = null;
 let scoreButton = null;
+let hintButton = null;
 
 function init() {
     colorBlock = document.getElementById('color-block');
     scoreButton = document.getElementById('score-button');
+    hintButton = document.getElementById('hint-button');
 
     redSlider = document.querySelector('#red-slider');
     greenSlider = document.querySelector('#green-slider');
@@ -22,18 +24,21 @@ function init() {
         redSlider.addEventListener('input', (event) => {
             red = parseInt(event.target.value, 10);
             updateColorBlock();
+            clearHint();
           });      
     }
     if (greenSlider) {
         greenSlider.addEventListener('input', (event) => {
             green = parseInt(event.target.value, 10);
             updateColorBlock();
+            clearHint();
         });    
     }
     if (blueSlider) {
         blueSlider.addEventListener('input', (event) => {
             blue = parseInt(event.target.value, 10);
             updateColorBlock();
+            clearHint();
         });    
     }
 
@@ -106,6 +111,7 @@ function newGame() {
     updateRandomBlock();
     updateColorBlock();
     enableControls();
+    clearHint()
 }
 
 function resetTimer() {
@@ -166,6 +172,10 @@ function disableControls() {
     if (scoreButton) {
         scoreButton.setAttribute('disabled', true);
     }
+
+    if (hintButton) {
+        hintButton.setAttribute('disabled', true);
+    }
 }
 
 function enableControls() {
@@ -185,5 +195,59 @@ function enableControls() {
 
     if (scoreButton) {
         scoreButton.removeAttribute('disabled');
+    }
+
+    if (hintButton) {
+        hintButton.removeAttribute('disabled');
+    }
+}
+
+function hint() {
+    if (!randomColor) {
+        return;
+    }
+    var redHint = document.getElementById('hint-red');
+    var greenHint = document.getElementById('hint-green');
+    var blueHint = document.getElementById('hint-blue');
+
+    var rDiff = randomColor.red - red;
+    var gDiff = randomColor.green - green;
+    var bDiff = randomColor.blue - blue;
+
+    if (redHint) {
+        setHint(redHint, rDiff, 'red');
+    }
+    if (blueHint) {
+        setHint(blueHint, bDiff, 'blue');
+    }
+    if (greenHint) {
+        setHint(greenHint, gDiff, 'green');
+    }
+}
+
+function setHint(el, diff, strColor) {
+    el.classList.remove('hidden')
+    if (Math.abs(diff) < 5) {
+        el.innerText = "You got it!";
+    } else if (diff > 0) {
+        el.innerText = `Needs more ${strColor}`;
+    } else {
+        el.innerText = `Needs less ${strColor}`;
+    }
+}
+
+function clearHint() {
+    var redHint = document.getElementById('hint-red');
+    var greenHint = document.getElementById('hint-green');
+    var blueHint = document.getElementById('hint-blue');
+
+    if (redHint) {
+        redHint.classList.add('hidden');
+    }
+    if (greenHint) {
+        greenHint.classList.add('hidden');
+    }
+    if (blueHint) {
+        blueHint.classList.add('hidden');
     }
 }
