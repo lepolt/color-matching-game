@@ -67,10 +67,9 @@ function updateRandomBlock() {
 }
 
 function buildBlockStyle(red, green, blue) {
-    let background = `background-color: rgb(${red}, ${green}, ${blue})`;
-    let boxShadow = `box-shadow: 0 0 5px rgb(${red}, ${green}, ${blue})`;
-    return `${background}; ${boxShadow}`;
+    return `background-color: rgb(${red}, ${green}, ${blue});`;
 }
+
 /**
  * Returns a random number between 0 and max
  * @param {Int} max 
@@ -123,7 +122,7 @@ function resetTimer() {
 function updateTimer() {
     var el = document.getElementById('timer');
     if (el) {
-        el.innerText = `${seconds} seconds`;
+        el.innerText = `${seconds}s`;
     }
 }
 

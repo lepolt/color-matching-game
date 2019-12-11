@@ -7,35 +7,52 @@
     </head>
 
     <body>
-        <div class="heavy text-center">Match the Color!</div>
-
-        <div id="match-block"></div>
-        <div id="color-block"></div>
-
-        <div class="slider">
-            <span>Red</span>
-            <input id="red-slider" type="range" name="red" min="0" max="255">
-        </div>
-
-        <div class="slider">
-            <span>Green</span>
-            <input id="green-slider" type="range" name="green" min="0" max="255">
-        </div>
-
-        <div class="slider">
-            <span>Blue</span>
-            <input id="blue-slider" type="range" name="blue" min="0" max="255">
-        </div>
-
-        <div class="compare-container">
-            <div class="text-center" id="timer"></div>
-            <button id="score-button" onclick="calculateScore()">Compare</button>
+        <div class="content">
+            <div class="container">
+                <div class="title">Match the Color</div>
+    
+                <div class="row">
+                    <div class="block-container">
+                        <div id="match-block" class="block"></div>
+                        <div class="block-text">Match this color</div>
+                    </div>
+                    
+                    <div id="timer"></div>
+    
+                    <div class="block-container">
+                        <div id="color-block" class="block"></div>
+                        <div class="block-text">Your color</div>
+                    </div>
+                </div>
+    
+                <div class="row">
+    
+                    <div class="button-container">
+                        <button class="purple" id="score-button" onclick="calculateScore()">Compare</button>
+                        <button class="blue new-game" onclick="newGame()">New Game</button>
+                    </div>
+    
+                    <div class="slider-container">
+                        <div class="slider">
+                            <span class="red">Red</span>
+                            <input id="red-slider" type="range" name="red" min="0" max="255">
+                        </div>
             
-            <div class="text-center" id="score"></div>
-
+                        <div class="slider">
+                            <span class="green">Green</span>
+                            <input id="green-slider" type="range" name="green" min="0" max="255">
+                        </div>
+            
+                        <div class="slider">
+                            <span class="blue">Blue</span>
+                            <input id="blue-slider" type="range" name="blue" min="0" max="255">
+                        </div>            
+                    </div>
+                
+                </div>
+            </div>
+    
+            <div id="score"></div>
         </div>
-
-        <button class="new-game" onclick="newGame()">New Game</button>
-
     </body>
 </html>

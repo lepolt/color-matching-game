@@ -1,41 +1,124 @@
-.heavy {
-  font-weight: 700;
-}
-
-#color-block, #match-block {
-  height: 100px;
-  width: 100px;
-  margin: auto;
-}
-
 body {
-  width: 180px;
-  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  /* display: flex;
+  justify-content: center; */
 }
-.text-center {
+
+.content {
   text-align: center;
 }
-.slider {
-  padding-top: 10px;
+
+.container {
+  background-color: #E5EBF1;
+  border-radius: 4px;
+  height: 426px;
+  width: 420px;
+  margin: auto;
+  padding: 20px 30px;
+}
+
+.container .title {
+  color: #6A717D;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
 }
-.slider span {
-  width: 40px;
-}
-.compare-container {
-  padding-top: 10px;
+
+.row .block-container {
   display: flex;
   flex-direction: column;
+  font-size: 16px;
 }
-#score-button {
-  margin-top: 5px;
+
+.row .block-container .block {
+  border: 5px solid #FFFFFF;
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 5px;
 }
+
+.row .block-container .block-text {
+  color: #6A717D;
+  font-size: 16px;
+  text-align: center;
+}
+
+#timer { 
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.slider {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slider span {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.slider span.red {
+  color: #E02020;
+}
+.slider span.green {
+  color: #2BB700;
+}
+.slider span.blue {
+  color: #0091FF;
+}
+
+input[type=range] {
+  width: 150px;
+}
+
+button {
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 13px;
+  width: 130px;
+  height: 38px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:first-of-type {
+  margin-bottom: 5px;
+}
+
+button.blue {
+  background-color: #0091FF;
+}
+
+/* button.blue:hover {
+  background-color: ;
+} */
+
+button.purple {
+  background-color: #6236FF;
+}
+
 #score {
-  font-size: 20px;
-  padding-top: 5px;
-}
-.new-game {
-  width: 100%;
-  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+  text-transform: uppercase;
 }
