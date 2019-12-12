@@ -11,6 +11,9 @@ let colorBlock = null;
 let scoreButton = null;
 let hintButton = null;
 
+/**
+ * Initializes the app to default values. Sets some global variables.
+ */
 function init() {
     colorBlock = document.getElementById('color-block');
     scoreButton = document.getElementById('score-button');
@@ -71,13 +74,19 @@ function updateRandomBlock() {
     }
 }
 
+/**
+ * Builds a CSS style that can be applied to an element style
+ * @param {number} red 
+ * @param {number} green 
+ * @param {number} blue 
+ */
 function buildBlockStyle(red, green, blue) {
     return `background-color: rgb(${red}, ${green}, ${blue});`;
 }
 
 /**
  * Returns a random number between 0 and max
- * @param {Int} max 
+ * @param {number} max 
  */
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -114,6 +123,9 @@ function newGame() {
     clearHint()
 }
 
+/**
+ * Resets the timer
+ */
 function resetTimer() {
     seconds = 0;
     if (timer) {
@@ -125,6 +137,9 @@ function resetTimer() {
     }, 1000);
 }
 
+/**
+ * Updates the timer in the UI to the current value
+ */
 function updateTimer() {
     var el = document.getElementById('timer');
     if (el) {
@@ -132,6 +147,9 @@ function updateTimer() {
     }
 }
 
+/**
+ * Calculates a score based on the user-picked color and random color block
+ */
 function calculateScore() {
     if (!randomColor) {
         return;
@@ -154,6 +172,9 @@ function calculateScore() {
     disableControls();
 }
 
+/**
+ * Disables certain controls after a game has ended.
+ */
 function disableControls() {
     var redSlider = document.getElementById('red-slider');
     var greenSlider = document.getElementById('green-slider');
@@ -178,6 +199,9 @@ function disableControls() {
     }
 }
 
+/**
+ * Enables controls for a new game.
+ */
 function enableControls() {
     var redSlider = document.getElementById('red-slider');
     var greenSlider = document.getElementById('green-slider');
@@ -202,6 +226,9 @@ function enableControls() {
     }
 }
 
+/**
+ * Gives user a hint by comparing their current RGB values and the random values.
+ */
 function hint() {
     if (!randomColor) {
         return;
@@ -225,6 +252,12 @@ function hint() {
     }
 }
 
+/**
+ * Updates the hint UI for the specified HTML element w/ specified color
+ * @param {Element} el 
+ * @param {number} diff 
+ * @param {string} strColor 
+ */
 function setHint(el, diff, strColor) {
     el.classList.remove('hidden')
     if (Math.abs(diff) < 5) {
@@ -236,6 +269,9 @@ function setHint(el, diff, strColor) {
     }
 }
 
+/**
+ * Clears the hint UI.
+ */
 function clearHint() {
     var redHint = document.getElementById('hint-red');
     var greenHint = document.getElementById('hint-green');
